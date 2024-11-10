@@ -6,4 +6,11 @@ databaseChangeLog:
         - sqlFile:
             path: db/scripts/create_db_tables.sql
 
+  - changeSet:
+      id: insert_users
+      author: tijana
+      changes:
+        - sqlFile:
+            path: db/scripts/insert_users.sql
+
 

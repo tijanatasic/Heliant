@@ -20,3 +20,8 @@ spring:
 logging:
   level:
     root: INFO
+
+security:
+  jwt:
+    secret-key: Ui9JykzeDjbuv1myvchiGUSXEk8wdQKfpkjmzcwSZdgbdQtavAt3E8WpcVJYWdxVKmCjyM
+    expiration-time: 3600000
