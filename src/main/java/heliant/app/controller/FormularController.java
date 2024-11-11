@@ -3,6 +3,8 @@ package heliant.app.controller;
 import heliant.app.dto.request.FormularRequestDto;
 import heliant.app.dto.response.FormularResponseDto;
 import heliant.app.service.FormularService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,10 +17,12 @@ import java.util.List;
 @RequestMapping("/formular")
 @RequiredArgsConstructor
 @Slf4j
+@Tag(name = "Formular", description = "Controller in charge for managing formular")
 public class FormularController {
 
     private final FormularService formularService;
 
+    @Operation(summary = "Get a formular by its id")
     @GetMapping("/{id}")
     public ResponseEntity<FormularResponseDto> getById(@PathVariable Integer id) {
         log.info("Received request for fetching formular with ID: {}", id);
@@ -27,6 +31,7 @@ public class FormularController {
         return ResponseEntity.ok(formularResponseDto);
     }
 
+    @Operation(summary = "Get all formulars")
     @GetMapping("/all")
     public ResponseEntity<List<FormularResponseDto>> getByAll() {
         log.info("Received request for fetching all formulars");
@@ -35,6 +40,7 @@ public class FormularController {
         return ResponseEntity.ok(formularResponseDtoList);
     }
 
+    @Operation(summary = "Save formular")
     @PostMapping
     public ResponseEntity<FormularResponseDto> saveFormular(@Valid @RequestBody FormularRequestDto formularRequestDto) {
         log.info("Received request for saving formular: {}", formularRequestDto);
@@ -43,6 +49,7 @@ public class FormularController {
         return ResponseEntity.ok(formularResponseDto);
     }
 
+    @Operation(summary = "Update formular")
     @PutMapping("/{id}")
     public ResponseEntity<FormularResponseDto> updateFormular(@Valid @RequestBody FormularRequestDto formularRequestDto, @PathVariable Integer id) {
         log.info("Received request for updating formular. Id - {}, body - {}", id, formularRequestDto);
@@ -51,6 +58,7 @@ public class FormularController {
         return ResponseEntity.ok(formularResponseDto);
     }
 
+    @Operation(summary = "Delete formular")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFormular(@PathVariable Integer id) {
         log.info("Received request for deleting formular with id: {}", id);
