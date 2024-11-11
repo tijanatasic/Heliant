@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS korisnik (
     lozinka VARCHAR(256) NOT NULL,
     vreme_kreiranja TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     vreme_poslednje_izmene TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE KEY unique_korisnicko_ime (korisnicko_ime)
 );
 
 CREATE TABLE IF NOT EXISTS polje (
@@ -40,8 +41,8 @@ CREATE TABLE IF NOT EXISTS polje_popunjeno (
     id INT AUTO_INCREMENT,
     id_formular_popunjen INT NOT NULL,
     id_polje INT NOT NULL,
-    vrednost_tekst VARCHAR(256) NOT NULL,
-    vrednost_broj DOUBLE NOT NULL,
+    vrednost_tekst VARCHAR(256),
+    vrednost_broj DOUBLE,
     vreme_kreiranja TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     vreme_poslednje_izmene TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id),

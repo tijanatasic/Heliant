@@ -1,4 +1,4 @@
-package heliant.app.dto;
+package heliant.app.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;

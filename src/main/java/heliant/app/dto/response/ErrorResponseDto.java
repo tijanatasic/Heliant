@@ -1,4 +1,4 @@
-package heliant.app.dto;
+package heliant.app.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ErrorResponseDto {
     private int code;
-    private String message;
+    private Object message;
 }

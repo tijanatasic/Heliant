@@ -1,7 +1,7 @@
 package heliant.app.service.impl;
 
-import heliant.app.dto.LoginRequestDto;
-import heliant.app.dto.LoginResponseDto;
+import heliant.app.dto.request.LoginRequestDto;
+import heliant.app.dto.response.LoginResponseDto;
 import heliant.app.entity.KorisnikEntity;
 import heliant.app.service.AuthenticationService;
 import heliant.app.service.JwtService;

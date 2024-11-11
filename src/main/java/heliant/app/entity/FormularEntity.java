@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "formular")
 @Data
@@ -21,4 +23,12 @@ public class FormularEntity extends BaseEntity {
 
     @Column(name = "naziv", nullable = false)
     private String naziv;
+
+    @OneToMany(mappedBy = "formular", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<FormularPopunjenEntity> popunjeniFormulari;
+
+    @OneToMany(mappedBy = "formular", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<PoljeEntity> polja;
 }

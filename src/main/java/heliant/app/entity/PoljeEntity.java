@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "polje")
 @Data
@@ -21,7 +23,7 @@ public class PoljeEntity extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_formular", nullable = false)
     private FormularEntity formular;
 
@@ -35,4 +37,8 @@ public class PoljeEntity extends BaseEntity {
     @Convert(converter = TipPoljaEnumConverter.class)
     @Enumerated(EnumType.STRING)
     private TipPoljaEnum tip;
+
+    @OneToMany(mappedBy = "polje", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<PoljePopunjenoEntity> popunjenaPolja;
 }

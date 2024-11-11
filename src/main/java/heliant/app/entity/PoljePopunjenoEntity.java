@@ -19,7 +19,7 @@ public class PoljePopunjenoEntity extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_formular_popunjen", nullable = false)
     private FormularPopunjenEntity formularPopunjen;
 
