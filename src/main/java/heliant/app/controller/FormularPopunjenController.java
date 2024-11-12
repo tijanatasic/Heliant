@@ -4,11 +4,13 @@ import heliant.app.dto.request.FormularPopunjenRequestDto;
 import heliant.app.dto.response.FormularPopunjenResponseDto;
 import heliant.app.service.FormularPopunjenService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +21,13 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Formular Popunjen", description = "Controller in charge for managing formular popunjen")
+@SecurityRequirement(name = "bearerAuth")
 public class FormularPopunjenController {
 
     private final FormularPopunjenService formularPopunjenService;
 
     @Operation(summary = "Get a formular popunjen by its id")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'RADNIK')")
     @GetMapping("/{id}")
     public ResponseEntity<FormularPopunjenResponseDto> getById(@PathVariable Integer id) {
         log.info("Received request for fetching popunjen formular with ID: {}", id);
@@ -33,6 +37,7 @@ public class FormularPopunjenController {
     }
 
     @Operation(summary = "Get all formular popunjen")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'RADNIK')")
     @GetMapping("/all")
     public ResponseEntity<List<FormularPopunjenResponseDto>> getByAll() {
         log.info("Received request for fetching all popunjeni formulari");
@@ -42,6 +47,7 @@ public class FormularPopunjenController {
     }
 
     @Operation(summary = "Save formular popunjen")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public ResponseEntity<FormularPopunjenResponseDto> savePopunjenFormular(@Valid @RequestBody @Validated FormularPopunjenRequestDto formularPopunjenRequestDto) {
         log.info("Received request for saving popunjen formular: {}", formularPopunjenRequestDto);
@@ -51,6 +57,7 @@ public class FormularPopunjenController {
     }
 
     @Operation(summary = "Update formular popunjen")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<FormularPopunjenResponseDto> updatePopunjenFormular(@Valid @RequestBody @Validated FormularPopunjenRequestDto formularPopunjenRequestDto, @PathVariable Integer id) {
         log.info("Received request for updating popunjen formular. Id - {}, body - {}", id, formularPopunjenRequestDto);
@@ -60,6 +67,7 @@ public class FormularPopunjenController {
     }
 
     @Operation(summary = "Delete formular popunjen")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePopunjenFormular(@PathVariable Integer id) {
         log.info("Received request for deleting popunjen formular with id: {}", id);

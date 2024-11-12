@@ -20,4 +20,11 @@ databaseChangeLog:
         - sqlFile:
             path: db/scripts/alter_db_tables_add_updated_and_created_by_columns.sql
 
+  - changeSet:
+      id: alter_korisnik_add_role
+      author: tijana
+      changes:
+        - sqlFile:
+            path: db/scripts/alter_korisnik_add_role.sql
+
 

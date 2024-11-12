@@ -1,7 +1,6 @@
 package heliant.app.entity;
 
 import heliant.app.enums.TipPoljaEnum;
-import heliant.app.enums.TipPoljaEnumConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,7 +31,6 @@ public class PoljeEntity extends BaseEntity {
     private Integer prikazniRedosled;
 
     @Column(name = "tip", nullable = false)
-    @Convert(converter = TipPoljaEnumConverter.class)
     @Enumerated(EnumType.STRING)
     private TipPoljaEnum tip;
 

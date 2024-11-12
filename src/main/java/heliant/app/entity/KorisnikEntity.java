@@ -1,5 +1,6 @@
 package heliant.app.entity;
 
+import heliant.app.enums.KorisnikRolaEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
@@ -41,10 +43,16 @@ public class KorisnikEntity implements UserDetails {
     @Column(name = "vreme_poslednje_izmene", nullable = false)
     private LocalDateTime vremePoslednjeIzmene;
 
+    @Column(name = "rola")
+    @Enumerated(EnumType.STRING)
+    private KorisnikRolaEnum rola;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        if (rola == null) {
+            return List.of();
+        }
+        return List.of(new SimpleGrantedAuthority(rola.name()));
     }
 
     @Override
