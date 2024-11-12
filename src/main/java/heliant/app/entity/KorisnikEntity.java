@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,8 +18,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper = true)
-public class KorisnikEntity extends BaseEntity implements UserDetails {
+public class KorisnikEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,17 @@ public class KorisnikEntity extends BaseEntity implements UserDetails {
 
     @Column(name = "lozinka", nullable = false)
     private String lozinka;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "vreme_kreiranja", nullable = false)
+    private LocalDateTime vremeKreiranja;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "vreme_poslednje_izmene", nullable = false)
+    private LocalDateTime vremePoslednjeIzmene;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,16 +1,14 @@
 package heliant.app.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PoljeResponseDto {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class PoljeResponseDto extends BaseResponseDto {
 
     @JsonProperty(value = "id")
     private Integer id;
@@ -22,9 +20,5 @@ public class PoljeResponseDto {
     private Integer prikazniRedosled;
     @JsonProperty(value = "tip")
     private String tip;
-    @JsonProperty(value = "vremeKreiranja")
-    private LocalDateTime vremeKreiranja;
-    @JsonProperty(value = "vremePoslednjeIzmene")
-    private LocalDateTime vremePoslednjeIzmene;
 
 }

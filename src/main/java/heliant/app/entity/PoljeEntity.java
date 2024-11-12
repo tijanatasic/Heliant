@@ -3,10 +3,7 @@ package heliant.app.entity;
 import heliant.app.enums.TipPoljaEnum;
 import heliant.app.enums.TipPoljaEnumConverter;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class PoljeEntity extends BaseEntity {
 
     @Id
