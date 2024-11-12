@@ -1,6 +1,7 @@
 package heliant.app.service.impl;
 
 import heliant.app.dto.request.FormularRequestDto;
+import heliant.app.dto.response.FormularPageableResponseDto;
 import heliant.app.dto.response.FormularResponseDto;
 import heliant.app.entity.FormularEntity;
 import heliant.app.exception.ValidationException;
@@ -10,6 +11,9 @@ import heliant.app.service.FormularService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,16 +37,16 @@ public class FormularServiceImpl implements FormularService {
 
     @Override
     @Transactional
-    public List<FormularResponseDto> findAllFormular() {
-        List<FormularEntity> formularEntities = formularEntityRepository.findAll();
-        log.debug("Number of fetched formulars is: {}", formularEntities.size());
-        if (formularEntities.isEmpty()) {
+    public FormularPageableResponseDto findAllFormular(int page, int pageSize) {
+        Pageable pageable = PageRequest.of(page, pageSize);
+        Page<FormularEntity> formularEntitiesPage = formularEntityRepository.findAllByOrderByIdAsc(pageable);
+        if (formularEntitiesPage.isEmpty()) {
             log.debug("There are no formulars in DB.");
-            return List.of();
+            return new FormularPageableResponseDto(List.of(), 0, 0L, 0, pageSize);
         }
-        List<FormularResponseDto> formularResponseDtos = formularMapper.mapFormularEntityListToResponseDtoList(formularEntities);
-        log.debug("Mapped formularDtos: {}", formularResponseDtos);
-        return formularResponseDtos;
+        FormularPageableResponseDto formularPageableResponseDto = formularMapper.mapFormularDtoListToPageableResponse(formularEntitiesPage);
+        log.debug("Mapped FormularPageableResponseDto: {}", formularPageableResponseDto);
+        return formularPageableResponseDto;
     }
 
     @Override

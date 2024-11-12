@@ -1,15 +1,14 @@
 package heliant.app.service;
 
 import heliant.app.dto.request.FormularRequestDto;
+import heliant.app.dto.response.FormularPageableResponseDto;
 import heliant.app.dto.response.FormularResponseDto;
-
-import java.util.List;
 
 public interface FormularService {
 
     FormularResponseDto findFormularById(Integer id);
 
-    List<FormularResponseDto> findAllFormular();
+    FormularPageableResponseDto findAllFormular(int page, int pageSize);
 
     FormularResponseDto saveFormular(FormularRequestDto formularRequestDto);
 

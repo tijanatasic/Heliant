@@ -1,6 +1,7 @@
 package heliant.app.controller;
 
 import heliant.app.dto.request.FormularRequestDto;
+import heliant.app.dto.response.FormularPageableResponseDto;
 import heliant.app.dto.response.FormularResponseDto;
 import heliant.app.service.FormularService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,8 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/formular")
@@ -38,9 +37,9 @@ public class FormularController {
     @Operation(summary = "Get all formulars")
     @PreAuthorize("hasAnyAuthority('ADMIN', 'RADNIK')")
     @GetMapping("/all")
-    public ResponseEntity<List<FormularResponseDto>> getByAll() {
-        log.info("Received request for fetching all formulars");
-        List<FormularResponseDto> formularResponseDtoList = formularService.findAllFormular();
+    public ResponseEntity<FormularPageableResponseDto> getByAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int pageSize) {
+        log.info("Received request for fetching all formulars. Page: {}, size: {}", page, pageSize);
+        FormularPageableResponseDto formularResponseDtoList = formularService.findAllFormular(page, pageSize);
         log.info("Returning fetched formulars: {}", formularResponseDtoList);
         return ResponseEntity.ok(formularResponseDtoList);
     }
