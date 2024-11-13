@@ -66,24 +66,31 @@ public abstract class FormularPopunjenMapper {
 
     private void updatePopunjenaPoljaFields(FormularPopunjenEntity formularPopunjenEntity, FormularPopunjenRequestDto formularPopunjenRequestDto) {
 
+        // Geting all popunjena polja from request and creating Map including ID and popunjeno polje object
         Map<Integer, PoljePopunjenoRequestDto> newPoljaPopunjenaMap = formularPopunjenRequestDto.getPopunjenaPolja().stream()
                 .collect(Collectors.toMap(PoljePopunjenoRequestDto::getPoljeId, Function.identity()));
 
+        // Creating iterator consisted of popunjena polja that already exist for this popunjen formular
         Iterator<PoljePopunjenoEntity> iterator = formularPopunjenEntity.getPopunjenaPolja().iterator();
 
         while (iterator.hasNext()) {
+            // Get popunjeno polje entity
             PoljePopunjenoEntity oldPoljePopunjeno = iterator.next();
+            // Try to find if popunjeno polje with this ID exists in request received for updating
             PoljePopunjenoRequestDto newPoljePopunjeno = newPoljaPopunjenaMap.get(oldPoljePopunjeno.getPolje().getId());
 
+            // If there is a match, update existing popunjeno polje entity and remove it from map since it is updated.
             if (newPoljePopunjeno != null) {
                 oldPoljePopunjeno.setVrednostTekst(newPoljePopunjeno.getVrednostTekst());
                 oldPoljePopunjeno.setVrednostBroj(newPoljePopunjeno.getVrednostBroj());
                 newPoljaPopunjenaMap.remove(oldPoljePopunjeno.getPolje().getId());
             } else {
-                ;
+                // If such ID wasn't received in request, it is considered this polje popunjeno shouldn't exist anymore
                 iterator.remove();
             }
         }
+
+        // Stream through map of rest objects of popunjena polja and add them all - these are considered as new one
         newPoljaPopunjenaMap.values().forEach(newPoljePopunjeno -> {
             PoljePopunjenoEntity poljePopunjenoEntity = poljePopunjenoMapper.mapPoljePopunjenoRequestDtoToEntity(newPoljePopunjeno, formularPopunjenEntity);
             formularPopunjenEntity.getPopunjenaPolja().add(poljePopunjenoEntity);

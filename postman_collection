@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "bdf91db5-e3b2-4d80-9349-f021857cd0d5",
+		"name": "Heliant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Formular",
+			"item": [
+				{
+					"name": "Get all formulars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular/all?page=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all formular by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"naziv\": \"Formular 1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/formular",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"naziv\": \"Formular 1 - Updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/formular/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Polje",
+			"item": [
+				{
+					"name": "Get all polja",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/polje/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"polje",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all polje by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/polje/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"polje",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create polje",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"formularId\": 3,\r\n    \"naziv\": \"Polje 3\",\r\n    \"prikazniRedosled\": 3,\r\n    \"tip\": \"TIP_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/polje",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"polje"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update polje",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"formularId\": 3,\r\n    \"naziv\": \"Polje 1\",\r\n    \"prikazniRedosled\": 3,\r\n    \"tip\": \"TIP_2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/polje/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"polje",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete polje",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/polje/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"polje",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Popunjen Formular",
+			"item": [
+				{
+					"name": "Get all popunjeni formulari",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular-popunjen/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular-popunjen",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get popunjen formular by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular-popunjen/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular-popunjen",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create popunjen formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"formularId\": 3,\r\n    \"popunjenaPolja\": [\r\n        {\r\n            \"poljeId\": 6,\r\n            \"vrednostTekst\": \"Tekst\"\r\n        },\r\n        {\r\n            \"poljeId\": 4,\r\n            \"vrednostBroj\": 10\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/formular-popunjen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular-popunjen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"formularId\": 4,\r\n    \"popunjenaPolja\": [\r\n        {\r\n            \"poljeId\": 4,\r\n            \"vrednostBroj\": 111\r\n        },\r\n        {\r\n            \"poljeId\": 5,\r\n            \"vrednostBroj\": 6\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/formular-popunjen/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular-popunjen",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete formular",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpZCI6MSwidXNlcm5hbWUiOiJrb3Jpc25pazFAaGVsaWFudC5ycyIsInN1YiI6ImtvcmlzbmlrMUBoZWxpYW50LnJzIiwiaWF0IjoxNzMxNTE2NTM2LCJleHAiOjE3MzE1MjAxMzZ9.aMhFKePZRgD6fofL3MgcnWmb5JfubrTnA-pP4EfsxQuyA7zdoNir4DWz69377bJ1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/formular-popunjen/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"formular-popunjen",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"korisnik1@heliant.rs\",\r\n    \"password\": \"korisnik1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
